@@ -1,5 +1,3 @@
 import { AuthContext } from "./AuthContext"
 
-export {
-    AuthContext,
-}
+export { AuthContext }

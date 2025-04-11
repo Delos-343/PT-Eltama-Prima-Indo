@@ -1,22 +1,33 @@
-import { Router, Routes } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
-import { Navbar } from './components'
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { Catalog, Login, Navbar, ProtectedRoute } from './components'
+import AuthProvider from './context/AuthContext';
 
 function App() {
-
   return (
-    <>
+    <AuthProvider>
       <Router>
         <div className="min-h-screen bg-gray-100">
           <Navbar />
           <div className="container mx-auto px-4 py-8">
-            Hello, World
+            <Routes>
+              <Route path="/login" element={ <Login /> } />
+              <Route path="/catalog" element={
+                <ProtectedRoute>
+                  <Catalog />
+                </ProtectedRoute>
+              } />
+              <Route path="/" element={<Navigate to="/catalog" replace />} />
+            </Routes>
           </div>
         </div>
         <ToastContainer position="bottom-right" />
       </Router>
-    </>
-  )
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;
