@@ -1,3 +1,4 @@
+// src/components/Login.jsx
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -9,43 +10,47 @@ const Login = () => {
     username: '',
     password: '',
   });
-
+  
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
     try {
       const data = await loginUser(formData);
       login(data.user, data.token);
       toast.success('Login successful!');
       navigate('/inventory');
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Login failed. Please try again.');
+      toast.error(
+        error.response?.data?.message || 'Login failed. Please try again.'
+      );
     } finally {
       setIsLoading(false);
     }
   };
-
+  
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+    <div className="flex justify-center items-center max-h-screen bg-gray-100">
+       <div className="w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl bg-white rounded-lg shadow-md p-8">
         <h2 className="text-2xl font-extralight text-center text-gray-800 mb-8">
           Fullstack Developer Test
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="username"
+            >
               Username
             </label>
             <input
@@ -60,7 +65,10 @@ const Login = () => {
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
@@ -91,9 +99,15 @@ const Login = () => {
             </button>
           </div>
           <div className="mt-4 p-5 text-gray-400 text-xs text-justify">
-            <p className="mb-5">Use the following credentials for testing:</p>
-            <p><strong>Admin ~</strong> Username: admin | Password: admin123</p>
-            <p><strong>Staff ~</strong> Username: staff | Password: staff123</p>
+            <p className="mb-5">
+              Use the following credentials for testing:
+            </p>
+            <p>
+              <strong>Admin ~</strong> Username: admin | Password: admin123
+            </p>
+            <p>
+              <strong>Staff ~</strong> Username: staff | Password: staff123
+            </p>
           </div>
         </form>
       </div>
