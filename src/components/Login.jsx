@@ -42,7 +42,7 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center h-screen -mt-16">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
+        <h2 className="text-2xl font-extralight text-center text-gray-800 mb-8">
           Fullstack Developer Test
         </h2>
         <form onSubmit={handleSubmit}>
@@ -92,7 +92,7 @@ const Login = () => {
               )}
             </button>
           </div>
-          <div className="mt-4 p-5 text-gray-600 text-sm text-center">
+          <div className="mt-4 p-5 text-gray-400 text-xs text-justify">
             <p className="mb-5">Use the following credentials for testing:</p>
             <p><strong> Admin ~ </strong> Username: admin | Password: admin123</p>
             <p><strong> Staff ~ </strong> Username: staff | Password: staff123</p>
