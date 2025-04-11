@@ -42,18 +42,20 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center h-screen -mt-16">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">Inventory System Login</h2>
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
+          Fullstack Developer Test
+        </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-              Input Your Username
+              Username
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
               type="text"
               name="username"
-              placeholder="Username"
+              placeholder="Your Username"
               value={formData.username}
               onChange={handleChange}
               required
@@ -61,14 +63,14 @@ const Login = () => {
           </div>
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-              Input Your Secret Password
+              Password
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
               type="password"
               name="password"
-              placeholder="******************"
+              placeholder="********"
               value={formData.password}
               onChange={handleChange}
               required
@@ -90,9 +92,9 @@ const Login = () => {
               )}
             </button>
           </div>
-          <div className="mt-4 text-gray-600 text-sm text-center">
-            <p>Use the following credentials for testing:</p>
-            <p><strong> Admin ~ </strong> Username: admin | Ppassword: admin123</p>
+          <div className="mt-4 p-5 text-gray-600 text-sm text-center">
+            <p className="mb-5">Use the following credentials for testing:</p>
+            <p><strong> Admin ~ </strong> Username: admin | Password: admin123</p>
             <p><strong> Staff ~ </strong> Username: staff | Password: staff123</p>
           </div>
         </form>

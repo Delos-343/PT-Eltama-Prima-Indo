@@ -19,7 +19,9 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-600 text-white py-4 shadow-md">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold">Inventory System</Link>
+        <Link to="/" className="text-xl font-bold">
+          PT ELTAMA PRIMA INDO
+        </Link>
         
         {user ? (
           <div className="flex items-center space-x-4">
@@ -40,7 +42,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/login"
-            className="bg-blue-700 hover:bg-blue-800 text-white text-sm py-1 px-3 rounded"
+            className="bg-gray-100 hover:bg-blue-800 text-white text-sm py-1 px-4 rounded"
           >
             Login
           </Link>

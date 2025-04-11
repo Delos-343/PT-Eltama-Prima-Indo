@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -9,7 +9,7 @@ import AuthProvider from './context/AuthContext';
 function App() {
   return (
     <AuthProvider>
-      <Router>
+-     <>
         <div className="min-h-screen bg-gray-100">
           <Navbar />
           <div className="container mx-auto px-4 py-8">
@@ -25,7 +25,7 @@ function App() {
           </div>
         </div>
         <ToastContainer position="bottom-right" />
-      </Router>
+-     </>
     </AuthProvider>
   );
 }
