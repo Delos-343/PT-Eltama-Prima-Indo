@@ -81,3 +81,45 @@ const initDB = async () => {
       console.error('Error initializing database:', error);
     }
 };
+
+// Auth middleware
+const authenticateToken = (req, res, next) => {
+
+  const authHeader = req.headers['authorization'];
+
+  const token = authHeader && authHeader.split(' ')[1];
+  
+  if (!token) {
+    return res.status(401).json({ message: 'Authentication token required' });
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET || 'your_jwt_secret', (err, user) => {
+
+    if (err) {
+      return res.status(403).json({ message: 'Invalid or expired token' });
+    }
+
+    req.user = user;
+
+    next();
+
+  });
+};
+
+// Role-based access + control
+const checkRole = (roles) => {
+
+  return (req, res, next) => {
+
+    if (!req.user) {
+      return res.status(401).json({ message: 'Unauthorized' });
+    }
+    
+    if (!roles.includes(req.user.role)) {
+      return res.status(403).json({ message: 'Forbidden: Insufficient permissions' });
+    }
+    
+    next();
+    
+  };
+};
