@@ -5,7 +5,6 @@ import { loginUser } from '../services/api';
 import { AuthContext } from '../context/AuthContext';
 
 const Login = () => {
-
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -23,7 +22,6 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
     setIsLoading(true);
 
@@ -40,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen -mt-16">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
         <h2 className="text-2xl font-extralight text-center text-gray-800 mb-8">
           Fullstack Developer Test
@@ -94,8 +92,8 @@ const Login = () => {
           </div>
           <div className="mt-4 p-5 text-gray-400 text-xs text-justify">
             <p className="mb-5">Use the following credentials for testing:</p>
-            <p><strong> Admin ~ </strong> Username: admin | Password: admin123</p>
-            <p><strong> Staff ~ </strong> Username: staff | Password: staff123</p>
+            <p><strong>Admin ~</strong> Username: admin | Password: admin123</p>
+            <p><strong>Staff ~</strong> Username: staff | Password: staff123</p>
           </div>
         </form>
       </div>
