@@ -81,7 +81,9 @@ const Catalog = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Inventory Management</h1>
+        <h1 className="text-2xl font-bold text-gray-800">
+          CATALOG
+        </h1>
         {isAdmin && (
           <button
             onClick={() => setShowAddForm(true)}

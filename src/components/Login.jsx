@@ -29,7 +29,7 @@ const Login = () => {
       const data = await loginUser(formData);
       login(data.user, data.token);
       toast.success('Login successful!');
-      navigate('/inventory');
+      navigate('/catalog');
     } catch (error) {
       toast.error(
         error.response?.data?.message || 'Login failed. Please try again.'
@@ -40,7 +40,7 @@ const Login = () => {
   };
   
   return (
-    <div className="flex justify-center items-center max-h-screen bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
        <div className="w-full sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl bg-white rounded-lg shadow-md p-8">
         <h2 className="text-2xl font-extralight text-center text-gray-800 mb-8">
           Fullstack Developer Test

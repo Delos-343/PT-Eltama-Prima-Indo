@@ -201,7 +201,7 @@ app.post('/register', authenticateToken, checkRole(['admin']), async (req, res) 
 });
 
 // Catalog Routes
-app.get('/inventory', authenticateToken, async (req, res) => {
+app.get('/catalog', authenticateToken, async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM inventory ORDER BY id ASC');
     res.json(result.rows);
@@ -211,7 +211,7 @@ app.get('/inventory', authenticateToken, async (req, res) => {
   }
 });
 
-app.post('/inventory', authenticateToken, checkRole(['admin']), async (req, res) => {
+app.post('/catalog', authenticateToken, checkRole(['admin']), async (req, res) => {
   try {
     const { name, description, quantity, price } = req.body;
     
@@ -231,7 +231,7 @@ app.post('/inventory', authenticateToken, checkRole(['admin']), async (req, res)
   }
 });
 
-app.put('/inventory/:id', authenticateToken, checkRole(['admin']), async (req, res) => {
+app.put('/catalog/:id', authenticateToken, checkRole(['admin']), async (req, res) => {
   try {
     const { id } = req.params;
     const { name, description, quantity, price } = req.body;
@@ -256,7 +256,7 @@ app.put('/inventory/:id', authenticateToken, checkRole(['admin']), async (req, r
   }
 });
 
-app.delete('/inventory/:id', authenticateToken, checkRole(['admin']), async (req, res) => {
+app.delete('/catalog/:id', authenticateToken, checkRole(['admin']), async (req, res) => {
   try {
     const { id } = req.params;
     

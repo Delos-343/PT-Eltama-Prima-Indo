@@ -52,22 +52,22 @@ export const registerUser = async (userData) => {
 
 // Inventory API
 export const getInventory = async () => {
-  const response = await api.get('/inventory');
+  const response = await api.get('/catalog');
   return response.data;
 };
 
 export const addInventoryItem = async (item) => {
-  const response = await api.post('/inventory', item);
+  const response = await api.post('/catalog', item);
   return response.data;
 };
 
 export const updateInventoryItem = async (id, item) => {
-  const response = await api.put(`/inventory/${id}`, item);
+  const response = await api.put(`/catalog/${id}`, item);
   return response.data;
 };
 
 export const deleteInventoryItem = async (id) => {
-  const response = await api.delete(`/inventory/${id}`);
+  const response = await api.delete(`/catalog/${id}`);
   return response.data;
 };
 
