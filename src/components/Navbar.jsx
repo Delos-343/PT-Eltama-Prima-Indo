@@ -17,9 +17,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full max-w-screen-xl bg-blue-600 py-4 shadow-md text-cyan-700">
+    <nav className="w-full max-w-screen-xl bg-blue-600 py-4 shadow-md">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link to="/" className="text-sm font-extralight">
+        <Link to="/" className="text-sm font-extralight text-cyan-700">
           PT ELTAMA PRIMA INDO
         </Link>
         
